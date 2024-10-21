@@ -1,0 +1,237 @@
+---
+title: "instruction_book_finance_class_shiny"
+format: html
+editor: visual
+---
+
+
+
+## **Instruction Book for Using the Shiny-Based "Portfolio Management Class" in a Virtual Classroom Setting**
+
+### **Table of Contents**
+
+1.  **Introduction**
+
+2.  **What Does This Shiny App Do?**
+
+3.  **How to Set Up and Run the Shiny App**
+
+    -   Prerequisites
+
+    -   Running the App
+
+4.  **Using the Shiny App in a Virtual Class**
+
+    -   Zoom Setup and Integration
+
+    -   Step-by-Step Guide to Running the Class
+
+5.  **Detailed Breakdown of the Shiny App**
+
+    -   Portfolio Management Overview
+
+    -   Key Features of the App
+
+6.  **Portfolio Summary Features**
+
+    -   Net Portfolio Value
+
+    -   Cash Available
+
+    -   Borrowed Cash (at 10% Annual Interest)
+
+    -   Total and Weekly Portfolio Increases
+
+7.  **Additional Features**
+
+    -   Event Influences
+
+    -   Securities Price History
+
+8.  **FAQ**
+
+9.  **Troubleshooting**
+
+### **1. Introduction**
+
+This instruction book will guide you through the **"Portfolio Management Class" Shiny app**, designed for teaching students about managing an investment portfolio in a simulated, event-driven market environment. This app is especially suited for virtual classroom settings using platforms like Zoom.
+
+The app simulates securities price movements over a year, and participants will make weekly investment decisions, buying and selling securities while managing their cash, borrowing funds, and paying interest.
+
+### **2. What Does This Shiny App Do?**
+
+The **Portfolio Management Class** app helps students simulate managing a portfolio of 5 securities by investing virtual cash. The app includes:
+
+-   A **price history** for the securities, which can fluctuate based on a random log-normal distribution.
+
+-   **Event influences** that can affect the price of the securities.
+
+-   **Portfolio Summary** with real-time updates on portfolio value, cash available, borrowed funds, and interest charges.
+
+-   **Total and weekly increase** in portfolio value for each round.
+
+-   **Borrowing mechanism**: Students can borrow funds if they run out of cash, and they must pay interest on the borrowed cash at 10% annually (calculated per week).
+
+### **3. How to Set Up and Run the Shiny App**
+
+#### **Prerequisites**
+
+Before running the Shiny app, ensure you have the following:
+
+-   **R** installed on your computer. You can download it from CRAN.
+
+-   **RStudio** (optional but recommended for ease of use).
+
+-   Necessary R packages, including `shiny` and `ggplot2`, installed. You can install these packages by running the following command in R:
+
+```         
+r
+```
+
+Copy code
+
+`install.packages(c("shiny", "ggplot2"))`
+
+#### **Running the App**
+
+Once you have R and RStudio installed, follow these steps:
+
+1.  **Copy the Shiny App Code**: Copy the complete Shiny code provided earlier into an R script (e.g., `portfolio_management_class.R`).
+
+2.  **Run the App**:
+
+    -   Open the script in RStudio.
+
+    -   Click the **Run App** button or type the following command in the R console:
+
+```         
+r
+```
+
+Copy code
+
+`shiny::runApp('path_to_your_script')`
+
+The app will launch in your default web browser, and you can start using it for your class.
+
+### **4. Using the Shiny App in a Virtual Class**
+
+#### **Zoom Setup and Integration**
+
+1.  **Host a Zoom Session**: Schedule and host a Zoom session for your class.
+
+2.  **Share Your Screen**: Open the Shiny app in your web browser and share your screen with the participants using Zoom’s “Share Screen” feature.
+
+3.  **Interactive Experience**:
+
+    -   You can allow participants to control the app by giving them access to remote control through Zoom, or you can guide them through each investment decision step while they make notes of their decisions offline.
+
+4.  **Breakout Rooms (Optional)**:
+
+    -   You may use Zoom's breakout room feature to split participants into smaller groups to discuss strategies, then return to the main session for decision submissions.
+
+#### **Step-by-Step Guide to Running the Class**
+
+1.  **Introduction (10-15 minutes)**:
+
+    -   Explain the purpose of the simulation and the key concepts: portfolio value, cash management, interest on borrowed cash, and the effect of market events on securities.
+
+2.  **Investment Rounds (60-75 minutes)**:
+
+    -   Run several rounds (6-8) where each round represents one week of investment.
+
+    -   In each round:
+
+        1.  **Review the Event Influences** for the current round.
+
+        2.  **Discuss Securities Performance** based on price movements.
+
+        3.  **Students Make Investment Decisions**: Adjust holdings of securities using the sliders, within the limit of their available cash or borrowed funds.
+
+3.  **Final Reflection (15 minutes)**:
+
+    -   Analyze the results at the end of the session.
+
+    -   Discuss strategies that worked, challenges in managing cash and debt, and how events influenced investment decisions.
+
+### **5. Detailed Breakdown of the Shiny App**
+
+#### **Portfolio Management Overview**
+
+In the Shiny app, students manage an investment portfolio with 5 securities:
+
+-   **Global Oil**: Petroleum Drilling & Refining
+
+-   **Tech Giant**: Technology
+
+-   **Healthcare Innovations**: Pharmaceuticals & Biotech
+
+-   **Retail Power**: Retail & Consumer Goods
+
+-   **Green Energy Solutions**: Renewable Energy
+
+Each round simulates a week in a 1-year timeline. Each round presents new events, and students decide how to adjust their investments.
+
+#### **Key Features of the App**
+
+-   **Zero initial holdings**: At the start, students have \$10,000 in cash and no securities.
+
+-   **Borrowing at 10% interest**: If students need more than \$10,000 to buy securities, they borrow the additional funds and are charged weekly interest.
+
+-   **Real-time portfolio updates**: As the rounds progress, students can track their portfolio value, borrowed funds, and cash available.
+
+### **6. Portfolio Summary Features**
+
+The Portfolio Summary section displays three critical values:
+
+1.  **Net Portfolio Value**: This is the current value of all securities in the student’s portfolio plus the cash available, minus any borrowed cash and weekly interest on borrowed cash.
+
+2.  **Cash Available**: This shows how much cash the student has left to invest.
+
+3.  **Borrowed Cash**: Shows the total amount borrowed, with interest deducted weekly at 10% annually.
+
+Additionally, there are two more values:
+
+-   **Total Increase in Portfolio Value**: The cumulative increase in portfolio value over the entire simulation.
+
+-   **Weekly Increase in Portfolio Value**: The change in portfolio value from the previous week/round.
+
+### **7. Additional Features**
+
+#### **Event Influences**
+
+In each round, new market events are randomly generated that affect the prices of the 5 securities. These events are labeled **Event 1**, **Event 2**, etc., and they change the behavior of the securities in the market. For example, a tech boom will boost Tech Giant, while a market crash might reduce prices across the board.
+
+#### **Securities Price History**
+
+Students can view the historical prices of all 5 securities on a line graph. As new rounds progress, additional weeks are appended to the graph to show how prices evolve over time.
+
+### **8. FAQ**
+
+**Q1. How many rounds should I run in one class session?**
+
+-   It is recommended to run between 6 and 8 rounds, which will simulate 6-8 weeks of portfolio management.
+
+**Q2. What happens if a student runs out of cash?**
+
+-   If a student runs out of cash, they can still buy securities by borrowing funds. The borrowed funds are subject to a 10% annual interest rate, charged weekly.
+
+**Q3. How do events influence the securities?**
+
+-   Events are randomly selected each week and may positively or negatively impact one or more securities. The price movements reflect the nature of the event (e.g., oil price surges will boost Global Oil, while a market crash will affect all securities).
+
+### **9. Troubleshooting**
+
+**Problem: The app doesn't run.**
+
+-   Make sure you have R and RStudio installed, and that the necessary packages (`shiny`, `ggplot2`) are installed.
+
+**Problem: Portfolio Summary doesn’t update.**
+
+-   Ensure that the investment sliders have been adjusted and the "Submit Investments" button is clicked after making adjustments.
+
+**Problem: I can't see the plot or the event table.**
+
+-   Check that your R console is not throwing any errors, and ensure that the app is running in a browser window.
+
+This instruction book should now fully guide you on how to use the **Portfolio Management Class** Shiny app in a virtual setting. You can adapt the session based on the number of rounds, the pace of the class, and any additional discussion topics related to investment and financial management.

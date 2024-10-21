@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="J. Christopher Westland">
+<meta name="dcterms.date" content="2024-10-20">
+
+<title>Portfolio Management Class</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="portfolio_mngt_virtual_class_files/libs/clipboard/clipboard.min.js"></script>
+<script src="portfolio_mngt_virtual_class_files/libs/quarto-html/quarto.js"></script>
+<script src="portfolio_mngt_virtual_class_files/libs/quarto-html/popper.min.js"></script>
+<script src="portfolio_mngt_virtual_class_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="portfolio_mngt_virtual_class_files/libs/quarto-html/anchor.min.js"></script>
+<link href="portfolio_mngt_virtual_class_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="portfolio_mngt_virtual_class_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="portfolio_mngt_virtual_class_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="portfolio_mngt_virtual_class_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="portfolio_mngt_virtual_class_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Portfolio Management Class</h1>
+<p class="subtitle lead">UniRemington 2-hour Virtual Investment Workout</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>J. Christopher Westland </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 20, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="note-simulation-software-for-this-class-is-available-by-clicking-on-this-link-httpsjcwestland.shinyapps.iovirtual_invest_class" class="level2">
+<h2 class="anchored" data-anchor-id="note-simulation-software-for-this-class-is-available-by-clicking-on-this-link-httpsjcwestland.shinyapps.iovirtual_invest_class">Note: <strong>Simulation software for this class is available by clicking on this link: <a href="https://jcwestland.shinyapps.io/virtual_invest_class/" class="uri">https://jcwestland.shinyapps.io/virtual_invest_class/</a></strong></h2>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Welcome to the <strong>Portfolio Management Class</strong>, an immersive, interactive simulation designed to replicate the dynamics of financial portfolio management. This two-hour virtual class, conducted via Zoom, combines real-world investment decision-making with simulation-based exercises. Using a custom Shiny app, students will manage a portfolio of five securities, adjusting their holdings based on weekly market events and historical price data. The goal is to maximize portfolio value through strategic buying and selling of securities, with performance graded from A to F.</p>
+<p>This engaging workout helps participants sharpen their financial acumen by analyzing market trends, responding to world events, and making investment decisions in real-time.</p>
+</section>
+<section id="class-structure" class="level2">
+<h2 class="anchored" data-anchor-id="class-structure"><strong>Class Structure</strong></h2>
+<section id="total-duration-2-hours" class="level3">
+<h3 class="anchored" data-anchor-id="total-duration-2-hours"><strong>Total Duration</strong>: 2 Hours</h3>
+<p><strong>Platform</strong>: Zoom (for facilitation) + Shiny (for portfolio management simulation)<br>
+<strong>Rounds</strong>: 6 rounds (each simulating one week), culminating in a reflection and grading session</p>
+</section>
+</section>
+<section id="objective" class="level2">
+<h2 class="anchored" data-anchor-id="objective"><strong>Objective</strong></h2>
+<p>The primary goal of this session is to simulate real-world investment decision-making in a dynamic market environment. Students will analyze market trends, consider the influence of external events on their portfolio, and strategize on how to maximize portfolio value. Each decision will reflect how well students understand the interplay between past events, historical price data, and market uncertainty.</p>
+</section>
+<section id="agenda" class="level2">
+<h2 class="anchored" data-anchor-id="agenda"><strong>Agenda</strong></h2>
+<section id="introduction-10-minutes" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-10-minutes"><strong>1. Introduction (10 minutes)</strong></h3>
+<ul>
+<li><p><strong>Session Overview</strong>: The instructor will introduce the virtual workout and its objectives.</p></li>
+<li><p><strong>How the Simulation Works</strong>: Explanation of the relationship between price history, external events, and security prices. Students will understand how past events and trends can influence future price movements, but with some level of unpredictability due to the random component of securities prices.</p></li>
+<li><p><strong>Software Setup</strong>: Ensure all participants are logged into the Shiny interface, where they will manage their portfolios. Each student begins with $100,000 in cash, zero holdings of any security, and access to the price history of the five securities over the past year.</p></li>
+</ul>
+</section>
+<section id="challenge-rounds-6-rounds-15-minutes-each" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-rounds-6-rounds-15-minutes-each"><strong>2. Challenge Rounds (6 rounds, 15 minutes each)</strong></h3>
+<p>Each round represents <strong>one week</strong> of simulated time. In each round, participants will be presented with a series of events that impact their securities, requiring them to buy or sell shares to maximize their portfolio value.</p>
+<p><strong>What Happens in Each Round:</strong></p>
+<ul>
+<li><p><strong>Random Event Presentation (1 minute)</strong>: Each round begins with the presentation of up to 5 events randomly drawn from a pool of 100 potential events. These events affect a subset of securities, and each student must analyze their potential impact. Events range from “Oil Price Surge” to “Federal Reserve Interest Rate Hike” and will have varying impacts on securities based on relevance to their industry.</p></li>
+<li><p><strong>Securities Affected</strong>: The events impact specific securities in different ways. For example, a crisis in oil-producing countries will negatively affect Global Oil, while a tech boom will positively influence Tech Giant.</p></li>
+<li><p><strong>Graph Display</strong>: The Shiny app will show the updated price history of the five securities over the past year, including notations for significant events. Participants will see how the securities’ prices have evolved and how the new events might shape future price movements.</p></li>
+<li><p><strong>10-Minute Active Play</strong>: During this period, students will use the Shiny app’s sliders to buy or sell shares of the five securities. They must decide the optimal amount to invest in or divest from each security based on their analysis of the events and price trends.</p>
+<ul>
+<li><p><strong>Buy and Sell Constraints</strong>: Students can buy shares of securities as long as they have cash available. If their cash runs out, they can borrow money at a 10% annual interest rate (calculated weekly). Borrowing too much without sufficient returns can lead to losses.</p></li>
+<li><p><strong>Impact on Cash</strong>: Any profits or losses from each round will be added or subtracted from the cash available. Borrowing will accrue weekly interest, automatically deducted from their cash.</p></li>
+</ul></li>
+<li><p><strong>5-Minute Reflection &amp; Strategy Session</strong>: After each round, students will reflect on their decisions and strategize for the next round.</p>
+<ul>
+<li><p><strong>Questions to Consider</strong>:</p>
+<ul>
+<li><p>What was the impact of the events on your securities?</p></li>
+<li><p>Did the historical price trends influence your decision-making?</p></li>
+<li><p>How do you plan to adjust your strategy in the next round?</p></li>
+<li><p>What worked, what didn’t?</p></li>
+</ul></li>
+</ul>
+<p>This reflection is crucial for understanding how market trends and external events shape investment outcomes.</p></li>
+</ul>
+</section>
+<section id="sample-round-breakdown" class="level3">
+<h3 class="anchored" data-anchor-id="sample-round-breakdown"><strong>Sample Round Breakdown</strong></h3>
+<section id="round-1-15-minutes" class="level4">
+<h4 class="anchored" data-anchor-id="round-1-15-minutes"><strong>Round 1 (15 minutes)</strong>:</h4>
+<ul>
+<li><p><strong>Event 1</strong>: Market crash in the technology sector.</p></li>
+<li><p><strong>Event 2</strong>: Unexpected Federal Reserve interest rate increase.</p></li>
+<li><p><strong>Event 3</strong>: Major pharmaceutical breakthrough.</p></li>
+<li><p><strong>Event 4</strong>: Oil price surge.</p></li>
+<li><p><strong>Event 5</strong>: Retail industry supply chain disruption.</p></li>
+</ul>
+<p><strong>Impact on Securities</strong>:</p>
+<ul>
+<li><p>Technology stocks drop due to the market crash.</p></li>
+<li><p>Healthcare stocks surge due to the pharmaceutical breakthrough.</p></li>
+<li><p>Oil and gas stocks rise following the oil price surge.</p></li>
+<li><p>Retail stocks face negative impacts due to supply chain issues.</p></li>
+</ul>
+<p><strong>Participant Actions</strong>:</p>
+<ul>
+<li><p>Adjust holdings in response to these events (e.g., sell Tech Giant shares, buy Global Oil).</p></li>
+<li><p>Analyze how each event impacted their securities and strategize for the next round.</p></li>
+</ul>
+</section>
+</section>
+<section id="final-15-minutes-reflection-evaluation-grading" class="level3">
+<h3 class="anchored" data-anchor-id="final-15-minutes-reflection-evaluation-grading"><strong>Final 15 Minutes: Reflection, Evaluation &amp; Grading</strong></h3>
+<section id="collective-reflection" class="level4">
+<h4 class="anchored" data-anchor-id="collective-reflection"><strong>Collective Reflection</strong>:</h4>
+<p>After the final round, participants will engage in a group discussion about their strategies and outcomes.</p>
+<ul>
+<li><p><strong>Key Questions</strong>:</p>
+<ul>
+<li><p>What strategies were most effective in maximizing portfolio value?</p></li>
+<li><p>How did different events impact your decision-making?</p></li>
+<li><p>What patterns did you observe in your portfolio growth?</p></li>
+<li><p>What did you learn from other participants’ approaches?</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="automatic-grading-system-shiny-app" class="level4">
+<h4 class="anchored" data-anchor-id="automatic-grading-system-shiny-app"><strong>Automatic Grading System (Shiny App)</strong>:</h4>
+<p>The Shiny app will automatically generate a grade based on participants’ overall performance during the simulation.</p>
+<ul>
+<li><p><strong>Primary Grading Metric</strong>: Total portfolio value at the end of the simulation.</p></li>
+<li><p><strong>Secondary Metrics</strong>:</p>
+<ul>
+<li><p><strong>Risk Management</strong>: Participants who avoided excessive borrowing or large losses will score higher.</p></li>
+<li><p><strong>Strategic Consistency</strong>: Extra points will be awarded for participants who progressively built their portfolio value over the rounds.</p></li>
+<li><p><strong>Response to Events</strong>: Students who made timely and effective portfolio adjustments in response to events will be rewarded.</p></li>
+<li><p><strong>Diversity of Investments</strong>: Maintaining a well-diversified portfolio will be encouraged.</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="simulation-features" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-features"><strong>Simulation Features</strong></h2>
+<section id="real-time-price-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="real-time-price-simulation"><strong>Real-Time Price Simulation</strong>:</h3>
+<p>The Shiny app models securities prices in real-time, using a <strong>log-normal distribution</strong> with random fluctuations. Each security’s price is influenced by the following factors:</p>
+<ul>
+<li><p><strong>Historical Price Trends</strong>: Past price movements affect current prices. For example, if a security has seen a rise in prices for several consecutive weeks, there’s a higher chance it will continue to rise.</p></li>
+<li><p><strong>External Events</strong>: Randomly drawn events (e.g., oil price spikes, tech breakthroughs) affect securities based on relevance to their industry. For example, Global Oil is impacted by oil price changes, while Tech Giant is affected by cybersecurity breaches.</p></li>
+<li><p><strong>Random Component</strong>: While past events and trends influence future prices, there is always a random element in the simulation to reflect real-world market unpredictability.</p></li>
+<li><p><strong>Borrowing Limit</strong>: Students can borrow cash on the margin, with securities they own pledged as collateral, but only up to 50% of their <strong>total portfolio value</strong> (including cash and securities).</p></li>
+<li><p><strong>Borrowing Enforcement</strong>: If a student’s total borrowing exceeds this limit, borrowing will be capped at the 50% threshold.</p></li>
+</ul>
+<p>This update ensures that borrowing is constrained by the value of the student’s portfolio, preventing over-leveraging and preventing reckless financial decision-making within the simulation.</p>
+</section>
+<section id="event-impact-calculator" class="level3">
+<h3 class="anchored" data-anchor-id="event-impact-calculator"><strong>Event Impact Calculator</strong>:</h3>
+<p>Each week, the app draws <strong>up to 5 events</strong> from a pool of 100 possible events. These events affect security prices by specific percentages over the next 10 weeks. The events are displayed alongside the price charts for the 5 securities, and their effects on prices are simulated in real-time.</p>
+</section>
+<section id="interactive-interface" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-interface"><strong>Interactive Interface</strong>:</h3>
+<ul>
+<li><p><strong>Sliders</strong>: Participants use sliders to increase or decrease their investments in each security. This allows for intuitive, hands-on decision-making.</p></li>
+<li><p><strong>Real-Time Updates</strong>: As students adjust their portfolios, the system recalculates the portfolio’s value in real-time, showing immediate feedback on decisions.</p></li>
+<li><p><strong>Event Notations on Graphs</strong>: Each security’s price history will show event markers, making it easy for participants to see how past events influenced price trends.</p></li>
+</ul>
+</section>
+<section id="portfolio-summary" class="level3">
+<h3 class="anchored" data-anchor-id="portfolio-summary"><strong>Portfolio Summary</strong>:</h3>
+<p>The <strong>Portfolio Summary</strong> section dynamically updates to show:</p>
+<ul>
+<li><p><strong>Net Portfolio Value</strong>: The total value of the portfolio, including securities, cash, and borrowed amounts.</p></li>
+<li><p><strong>Cash Available</strong>: The remaining cash after buying or selling securities.</p></li>
+<li><p><strong>Borrowed Cash</strong>: Amount borrowed with 10% annual interest.</p></li>
+<li><p><strong>Weekly Increase</strong>: The change in portfolio value for the current round.</p></li>
+<li><p><strong>Cumulative Grade</strong>: A letter grade (A to F) based on overall portfolio performance.</p></li>
+</ul>
+</section>
+</section>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts"><strong>Final Thoughts</strong></h2>
+<p>The <strong>Portfolio Management Class</strong> provides participants with an engaging and dynamic learning experience. By simulating a real-world investment environment, participants can develop a deep understanding of how external events, market trends, and strategic decision-making can affect portfolio performance. The combination of interactive tools, real-time feedback, and reflective exercises prepares students for managing market volatility in a professional setting.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

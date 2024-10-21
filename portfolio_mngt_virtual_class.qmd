@@ -1,0 +1,179 @@
+---
+title: "Portfolio Management Class"
+subtitle: "UniRemington 2-hour Virtual Investment Workout" 
+author: "J. Christopher Westland"
+date: "10-20-2024"
+format: html
+editor: visual
+---
+
+## Note: **Simulation software for this class is available by clicking on this link: <https://jcwestland.shinyapps.io/virtual_invest_class/>**
+
+## 
+
+Welcome to the **Portfolio Management Class**, an immersive, interactive simulation designed to replicate the dynamics of financial portfolio management. This two-hour virtual class, conducted via Zoom, combines real-world investment decision-making with simulation-based exercises. Using a custom Shiny app, students will manage a portfolio of five securities, adjusting their holdings based on weekly market events and historical price data. The goal is to maximize portfolio value through strategic buying and selling of securities, with performance graded from A to F.
+
+This engaging workout helps participants sharpen their financial acumen by analyzing market trends, responding to world events, and making investment decisions in real-time.
+
+## **Class Structure**
+
+### **Total Duration**: 2 Hours
+
+**Platform**: Zoom (for facilitation) + Shiny (for portfolio management simulation)\
+**Rounds**: 6 rounds (each simulating one week), culminating in a reflection and grading session
+
+## **Objective**
+
+The primary goal of this session is to simulate real-world investment decision-making in a dynamic market environment. Students will analyze market trends, consider the influence of external events on their portfolio, and strategize on how to maximize portfolio value. Each decision will reflect how well students understand the interplay between past events, historical price data, and market uncertainty.
+
+## **Agenda**
+
+### **1. Introduction (10 minutes)**
+
+-   **Session Overview**: The instructor will introduce the virtual workout and its objectives.
+
+-   **How the Simulation Works**: Explanation of the relationship between price history, external events, and security prices. Students will understand how past events and trends can influence future price movements, but with some level of unpredictability due to the random component of securities prices.
+
+-   **Software Setup**: Ensure all participants are logged into the Shiny interface, where they will manage their portfolios. Each student begins with \$100,000 in cash, zero holdings of any security, and access to the price history of the five securities over the past year.
+
+### **2. Challenge Rounds (6 rounds, 15 minutes each)**
+
+Each round represents **one week** of simulated time. In each round, participants will be presented with a series of events that impact their securities, requiring them to buy or sell shares to maximize their portfolio value.
+
+**What Happens in Each Round:**
+
+-   **Random Event Presentation (1 minute)**: Each round begins with the presentation of up to 5 events randomly drawn from a pool of 100 potential events. These events affect a subset of securities, and each student must analyze their potential impact. Events range from "Oil Price Surge" to "Federal Reserve Interest Rate Hike" and will have varying impacts on securities based on relevance to their industry.
+
+-   **Securities Affected**: The events impact specific securities in different ways. For example, a crisis in oil-producing countries will negatively affect Global Oil, while a tech boom will positively influence Tech Giant.
+
+-   **Graph Display**: The Shiny app will show the updated price history of the five securities over the past year, including notations for significant events. Participants will see how the securities’ prices have evolved and how the new events might shape future price movements.
+
+-   **10-Minute Active Play**: During this period, students will use the Shiny app’s sliders to buy or sell shares of the five securities. They must decide the optimal amount to invest in or divest from each security based on their analysis of the events and price trends.
+
+    -   **Buy and Sell Constraints**: Students can buy shares of securities as long as they have cash available. If their cash runs out, they can borrow money at a 10% annual interest rate (calculated weekly). Borrowing too much without sufficient returns can lead to losses.
+
+    -   **Impact on Cash**: Any profits or losses from each round will be added or subtracted from the cash available. Borrowing will accrue weekly interest, automatically deducted from their cash.
+
+-   **5-Minute Reflection & Strategy Session**: After each round, students will reflect on their decisions and strategize for the next round.
+
+    -   **Questions to Consider**:
+
+        -   What was the impact of the events on your securities?
+
+        -   Did the historical price trends influence your decision-making?
+
+        -   How do you plan to adjust your strategy in the next round?
+
+        -   What worked, what didn’t?
+
+    This reflection is crucial for understanding how market trends and external events shape investment outcomes.
+
+### **Sample Round Breakdown**
+
+#### **Round 1 (15 minutes)**:
+
+-   **Event 1**: Market crash in the technology sector.
+
+-   **Event 2**: Unexpected Federal Reserve interest rate increase.
+
+-   **Event 3**: Major pharmaceutical breakthrough.
+
+-   **Event 4**: Oil price surge.
+
+-   **Event 5**: Retail industry supply chain disruption.
+
+**Impact on Securities**:
+
+-   Technology stocks drop due to the market crash.
+
+-   Healthcare stocks surge due to the pharmaceutical breakthrough.
+
+-   Oil and gas stocks rise following the oil price surge.
+
+-   Retail stocks face negative impacts due to supply chain issues.
+
+**Participant Actions**:
+
+-   Adjust holdings in response to these events (e.g., sell Tech Giant shares, buy Global Oil).
+
+-   Analyze how each event impacted their securities and strategize for the next round.
+
+### **Final 15 Minutes: Reflection, Evaluation & Grading**
+
+#### **Collective Reflection**:
+
+After the final round, participants will engage in a group discussion about their strategies and outcomes.
+
+-   **Key Questions**:
+
+    -   What strategies were most effective in maximizing portfolio value?
+
+    -   How did different events impact your decision-making?
+
+    -   What patterns did you observe in your portfolio growth?
+
+    -   What did you learn from other participants' approaches?
+
+#### **Automatic Grading System (Shiny App)**:
+
+The Shiny app will automatically generate a grade based on participants’ overall performance during the simulation.
+
+-   **Primary Grading Metric**: Total portfolio value at the end of the simulation.
+
+-   **Secondary Metrics**:
+
+    -   **Risk Management**: Participants who avoided excessive borrowing or large losses will score higher.
+
+    -   **Strategic Consistency**: Extra points will be awarded for participants who progressively built their portfolio value over the rounds.
+
+    -   **Response to Events**: Students who made timely and effective portfolio adjustments in response to events will be rewarded.
+
+    -   **Diversity of Investments**: Maintaining a well-diversified portfolio will be encouraged.
+
+## **Simulation Features**
+
+### **Real-Time Price Simulation**:
+
+The Shiny app models securities prices in real-time, using a **log-normal distribution** with random fluctuations. Each security’s price is influenced by the following factors:
+
+-   **Historical Price Trends**: Past price movements affect current prices. For example, if a security has seen a rise in prices for several consecutive weeks, there’s a higher chance it will continue to rise.
+
+-   **External Events**: Randomly drawn events (e.g., oil price spikes, tech breakthroughs) affect securities based on relevance to their industry. For example, Global Oil is impacted by oil price changes, while Tech Giant is affected by cybersecurity breaches.
+
+-   **Random Component**: While past events and trends influence future prices, there is always a random element in the simulation to reflect real-world market unpredictability.
+
+-   **Borrowing Limit**: Students can borrow cash on the margin, with securities they own pledged as collateral, but only up to 50% of their **total portfolio value** (including cash and securities).
+
+-   **Borrowing Enforcement**: If a student's total borrowing exceeds this limit, borrowing will be capped at the 50% threshold.
+
+This update ensures that borrowing is constrained by the value of the student's portfolio, preventing over-leveraging and preventing reckless financial decision-making within the simulation.
+
+### **Event Impact Calculator**:
+
+Each week, the app draws **up to 5 events** from a pool of 100 possible events. These events affect security prices by specific percentages over the next 10 weeks. The events are displayed alongside the price charts for the 5 securities, and their effects on prices are simulated in real-time.
+
+### **Interactive Interface**:
+
+-   **Sliders**: Participants use sliders to increase or decrease their investments in each security. This allows for intuitive, hands-on decision-making.
+
+-   **Real-Time Updates**: As students adjust their portfolios, the system recalculates the portfolio’s value in real-time, showing immediate feedback on decisions.
+
+-   **Event Notations on Graphs**: Each security’s price history will show event markers, making it easy for participants to see how past events influenced price trends.
+
+### **Portfolio Summary**:
+
+The **Portfolio Summary** section dynamically updates to show:
+
+-   **Net Portfolio Value**: The total value of the portfolio, including securities, cash, and borrowed amounts.
+
+-   **Cash Available**: The remaining cash after buying or selling securities.
+
+-   **Borrowed Cash**: Amount borrowed with 10% annual interest.
+
+-   **Weekly Increase**: The change in portfolio value for the current round.
+
+-   **Cumulative Grade**: A letter grade (A to F) based on overall portfolio performance.
+
+## **Final Thoughts**
+
+The **Portfolio Management Class** provides participants with an engaging and dynamic learning experience. By simulating a real-world investment environment, participants can develop a deep understanding of how external events, market trends, and strategic decision-making can affect portfolio performance. The combination of interactive tools, real-time feedback, and reflective exercises prepares students for managing market volatility in a professional setting.

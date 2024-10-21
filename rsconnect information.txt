@@ -1,0 +1,4 @@
+rsconnect::setAccountInfo(name='jcwestland', token='14A9248DC951E0AAE0428C3C4EF2DDF6', secret='t4Y7ggaymGTt9VZp9YisPSrd9aLclcJazF1sa+2I')
+
+
+https://jcwestland.shinyapps.io/virtual_invest_class/

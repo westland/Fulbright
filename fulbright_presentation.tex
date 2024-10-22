@@ -1,0 +1,156 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\usetheme[]{CambridgeUS}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\pgfdeclareimage[height=0.9 cm, width=6.0cm]{logo}{fulbright_logo.png}
+\logo{\pgfuseimage{logo}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Fulbright Specialist Program},
+  pdfauthor={J. Christopher Westland},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Fulbright Specialist Program}
+\subtitle{Activities, Objectives and Accomplishments - UniRemington LEGO
+Serious Play Lab}
+\author{J. Christopher Westland}
+\date{2024-10-22}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{The Fulbright Program}
+\phantomsection\label{the-fulbright-program}
+The Fulbright program was founded by United States Senator J. William
+Fulbright in 1946 and has been considered one of the most prestigious
+scholarships in the United States
+
+The program provides approximately 8,000 grants annually, comprising
+roughly:
+
+\begin{itemize}
+\tightlist
+\item
+  1,600 grants to U.S. students,
+\item
+  1,200 to U.S. scholars,
+\item
+  4,000 to foreign students,
+\item
+  900 to foreign visiting scholars, and
+\item
+  several hundred to teachers and professionals.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Fulbright Specialist Program}
+\phantomsection\label{the-fulbright-specialist-program}
+Fulbright Specialist Program is the smallest and most selective of these
+programs, and is open for U.S. academics and established professionals
+to engage in two- to six-week, project-based exchanges at host
+institutions.
+
+Recipients must be U.S. citizens; have significant professional,
+academic, or artistic achievements; cannot have lived abroad in the past
+6 years; and cannot have been employees of U.S. Department of State or
+U.S. Agency for International Development.
+
+Each year this program supports around:
+
+\begin{itemize}
+\tightlist
+\item
+  400 Specialist projects,
+\item
+  in 24 Eligible Disciplines
+\item
+  in 160 Countries
+\end{itemize}
+\end{frame}
+
+\end{document}

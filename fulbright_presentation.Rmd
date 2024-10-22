@@ -1,0 +1,47 @@
+---
+title: "Fulbright Specialist Program"
+subtitle: "Activities, Objectives and Accomplishments - UniRemington LEGO Serious Play Lab"
+author: "J. Christopher Westland"
+date: "`r Sys.Date()`"
+header-includes: 
+    - \pgfdeclareimage[height=0.9 cm, width=6.0cm]{logo}{fulbright_logo.png}
+    - \logo{\pgfuseimage{logo}}
+output: 
+  beamer_presentation:
+    theme: CambridgeUS
+#    colortheme: rose
+#    fonttheme: default
+    keep_tex: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# The Fulbright Program
+
+The Fulbright program was founded by United States Senator J. William Fulbright in 1946 and has been considered one of the most prestigious scholarships in the United States
+
+The program provides approximately 8,000 grants annually, comprising roughly:
+
+- 1,600 grants to U.S. students, 
+- 1,200 to U.S. scholars, 
+- 4,000 to foreign students, 
+- 900 to foreign visiting scholars, and 
+- several hundred to teachers and professionals.
+
+# The Fulbright Specialist Program
+
+Fulbright Specialist Program is the smallest and most selective of these programs, and is open for U.S. academics and established professionals to engage in two- to six-week, project-based exchanges at host institutions.  
+
+Recipients must be U.S. citizens; have significant professional, academic, or artistic achievements; cannot have lived abroad in the past 6 years; and cannot have been employees of U.S. Department of State or U.S. Agency for International Development.
+
+Each year this program supports around:
+
+- 400 Specialist projects, 
+- in 24 Eligible Disciplines
+- in 160 Countries
+
+
+

@@ -6,20 +6,55 @@ if (!require(ggplot2)) install.packages("ggplot2")
 library(shiny)
 library(ggplot2)
 
-# Generate random price history (more volatile)
-generate_prices <- function(weeks, num_securities = 5) {
-  base_prices <- c(100, 120, 150, 80, 90)
-  volatility <- 0.2  # Increased volatility for the entire period
+# Function to generate the next price based on the previous price
+generate_next_price <- function(last_prices, num_securities = 5) {
+  volatility <- 0.2  # Standard deviation for random walk
+  max_change <- 0.15 # Maximum allowed percentage change per week (15%)
   
-  prices <- matrix(NA, nrow = num_securities, ncol = weeks)
+  new_prices <- numeric(num_securities)
   
   for (i in 1:num_securities) {
-    prices[i, ] <- exp(cumsum(rnorm(weeks, mean = 0, sd = volatility)) + log(base_prices[i]))
+    # Generate a percentage change for the price
+    change <- exp(rnorm(1, mean = 0, sd = volatility)) - 1
+    
+    # Limit the price change to +/-15%
+    change <- min(max(change, -max_change), max_change)
+    
+    # Calculate the new price
+    new_prices[i] <- last_prices[i] * (1 + change)
   }
+  
+  return(new_prices)
+}
+
+# Generate initial prices for 52 weeks (this will be done only once)
+generate_initial_prices <- function(weeks = 52, num_securities = 5) {
+  base_prices <- c(100, 120, 150, 80, 90)
+  volatility <- 0.2  # Standard deviation for random walk
+  max_change <- 0.15 # Maximum allowed percentage change per week (15%)
+  
+  # Initialize the price matrix with weeks as rows and securities as columns
+  prices <- matrix(NA, nrow = weeks, ncol = num_securities)
+  
+  for (i in 1:num_securities) {
+    prices[1, i] <- base_prices[i] # Set initial price for each security
+    
+    for (week in 2:weeks) {
+      # Generate a percentage change for the price
+      change <- exp(rnorm(1, mean = 0, sd = volatility)) - 1
+      
+      # Limit the price change to +/-15%
+      change <- min(max(change, -max_change), max_change)
+      
+      # Calculate the new price
+      prices[week, i] <- prices[week - 1, i] * (1 + change)
+    }
+  }
+  
   return(prices)
 }
 
-# Generate random event influences
+# Generate random event influences with fixed column names
 generate_event_influences <- function(weeks) {
   events <- data.frame(
     Week = 1:weeks,
@@ -27,7 +62,8 @@ generate_event_influences <- function(weeks) {
     Event_2 = sample(c("None", "Tech Boom", "Cybersecurity Breach", "New Product Launch", "Market Crash"), weeks, replace = TRUE),
     Event_3 = sample(c("None", "Pharmaceutical Breakthrough", "FDA Approval", "Patent Expiry", "Market Crash"), weeks, replace = TRUE),
     Event_4 = sample(c("None", "Supply Chain Disruption", "Retail Sales Surge", "Consumer Sentiment Drop", "Market Crash"), weeks, replace = TRUE),
-    Event_5 = sample(c("None", "Government Subsidies", "Carbon Emission Regulations", "Oil Price Competition", "Market Crash"), weeks, replace = TRUE)
+    Event_5 = sample(c("None", "Government Subsidies", "Carbon Emission Regulations", "Oil Price Competition", "Market Crash"), weeks, replace = TRUE),
+    stringsAsFactors = FALSE  # Make sure strings are not factors
   )
   return(events)
 }
@@ -92,9 +128,9 @@ shinyApp(
     
     # Initialize portfolio values
     portfolio <- reactiveValues(
-      prices = generate_prices(52), # Initial 1-year prices for 5 securities
+      prices = generate_initial_prices(52), # Generate initial 52 weeks of prices for 5 securities (only once)
       shares = c(0, 0, 0, 0, 0), # Start with zero shares
-      event_influences = generate_event_influences(52),
+      event_influences = generate_event_influences(52), # Initial event influences for 52 weeks
       round = 1,
       cash_available = 100000, # Initial cash available increased to 100,000
       borrowed_cash = 0, # Start with zero borrowed cash
@@ -104,17 +140,27 @@ shinyApp(
       interest_rate = 0.10 / 52 # Weekly interest rate
     )
     
-    # Update the price history and event influences after each round
+    # Generate new price for the next week based on last available prices
     update_data <- function() {
-      new_prices <- generate_prices(1) # Generate prices for 1 week (5 securities)
-      if (nrow(new_prices) == nrow(portfolio$prices)) {
-        portfolio$prices <- cbind(portfolio$prices, new_prices) # Append new week of prices
+      # Get the most recent prices (last row in the prices matrix)
+      last_prices <- portfolio$prices[nrow(portfolio$prices), ]
+      
+      # Generate the next week's prices based on the last prices
+      new_prices <- generate_next_price(last_prices)
+      
+      # Append the new prices to the price history matrix
+      portfolio$prices <- rbind(portfolio$prices, new_prices)
+      
+      # Generate and append new events for the next week, ensuring columns match
+      new_events <- generate_event_influences(1)
+      colnames(new_events) <- colnames(portfolio$event_influences) # Ensure column names match
+      
+      # Update the Week column to display "Round 1", "Round 2", etc., for weeks after 52
+      current_week <- nrow(portfolio$prices)
+      if (current_week > 52) {
+        new_events$Week <- paste("Round", current_week - 52)
       }
       
-      # Append new week of events and update labels for rounds after week 52
-      new_events <- generate_event_influences(1)[1, ]
-      new_events$Week <- paste("Round", portfolio$round)  # Label rounds after week 52
-      colnames(new_events) <- colnames(portfolio$event_influences)
       portfolio$event_influences <- rbind(portfolio$event_influences, new_events)
     }
     
@@ -129,12 +175,12 @@ shinyApp(
     # Render the price history plot
     output$pricePlot <- renderPlot({
       prices <- portfolio$prices
-      weeks <- 1:ncol(prices)
+      weeks <- 1:nrow(prices)
       
       # Prepare the data for ggplot
       price_df <- data.frame(
-        Week = rep(weeks, each = nrow(prices)),
-        Price = as.vector(prices),
+        Week = rep(weeks, each = ncol(prices)),
+        Price = as.vector(t(prices)),
         Security = factor(rep(c("Global Oil", "Tech Giant", "Healthcare Innovations", "Retail Power", "Green Energy Solutions"), times = length(weeks)))
       )
       
@@ -145,8 +191,8 @@ shinyApp(
     
     # Render the event table showing event influences
     output$eventTable <- renderTable({
-      # Rename the columns to "Event 1", "Event 2", etc.
-      colnames(portfolio$event_influences) <- c("Week", "Event 1", "Event 2", "Event 3", "Event 4", "Event 5")
+      # Ensure the event influences have matching column names
+      colnames(portfolio$event_influences) <- c("Week", "Event_1", "Event_2", "Event_3", "Event_4", "Event_5")
       portfolio$event_influences
     })
     
@@ -155,11 +201,11 @@ shinyApp(
       # Update the last button press time
       lastButtonPress(Sys.time())
       
-      # Add a new week of prices and events
+      # Add the next week's prices and events
       update_data()
       
       # Calculate current prices for the latest week
-      current_prices <- portfolio$prices[, ncol(portfolio$prices)]
+      current_prices <- portfolio$prices[nrow(portfolio$prices), ]
       
       # Calculate total cost of new investments
       investments <- c(input$security1, input$security2, input$security3, input$security4, input$security5)
